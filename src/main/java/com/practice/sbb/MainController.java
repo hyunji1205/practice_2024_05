@@ -9,6 +9,6 @@ public class MainController {
     @GetMapping("/sbb")
     @ResponseBody
     public String index() {
-        return "애송이는 고양이";
+        return "애송이";
     }
 }
