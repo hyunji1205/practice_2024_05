@@ -6,9 +6,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
+
+//@Transactional
+//@Rollback(true)
+// DB에 반영 안됨
 class SbbApplicationTests {
 
 	@Autowired
@@ -16,11 +21,15 @@ class SbbApplicationTests {
 
 	@Test
 	void testJpa() {
+		assertEquals(2, this.questionRepository.count());
+		// 갯수 세기
 		Optional<Question> oq = this.questionRepository.findById(1);
+		// 첫번째 데이터
 		assertTrue(oq.isPresent());
 		Question q = oq.get();
-		q.setSubject("수정된 제목");
-		this.questionRepository.save(q);
+		this.questionRepository.delete(q);
+		// 삭제
+		assertEquals(1, this.questionRepository.count());
 	}
 }
 
@@ -55,3 +64,9 @@ class SbbApplicationTests {
 //		Question q = this.questionRepository.findBySubjectAndContent(
 //				"sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
 //		assertEquals(1, q.getId());
+
+//		Optional<Question> oq = this.questionRepository.findById(1);
+//		assertTrue(oq.isPresent());
+//		Question q = oq.get();
+//		q.setSubject("수정된 제목");
+//		this.questionRepository.save(q);
