@@ -1,11 +1,14 @@
 package com.practice.sbb;
 
+import com.practice.sbb.Answer.Answer;
+import com.practice.sbb.Answer.AnswerRepository;
+import com.practice.sbb.Question.Question;
+import com.practice.sbb.Question.QuestionRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

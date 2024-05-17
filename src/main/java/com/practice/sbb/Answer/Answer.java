@@ -1,5 +1,6 @@
-package com.practice.sbb;
+package com.practice.sbb.Answer;
 
+import com.practice.sbb.Question.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
