@@ -11,4 +11,8 @@ public class MainController {
     public String index() {
         return "애송이";
     }
+    @GetMapping("/")
+    public String root() {
+        return "redirect:/question/list";
+    }
 }
